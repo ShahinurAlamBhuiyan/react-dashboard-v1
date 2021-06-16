@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import SideMenu from './components/SideMenu/SideMenu';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Content from './components/MenuItem/Contents/Content';
+import Dashboard from './components/MenuItem/Dashboard/Dashboard';
+import Courses from './components/MenuItem/Contents/Courses/Courses';
+import Videos from './components/MenuItem/Contents/Videos/Videos';
+import Design from './components/MenuItem/Design/Design';
+import { useState } from 'react';
 
 function App() {
+  const [inactive, setInactive] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <SideMenu onCollapse={(inactive) =>{
+        setInactive(inactive);
+      }} />
+      <div className={`container ${inactive ? 'inactive' : ""} `}>
+        <Switch>
+          <Route exact path="/">
+            <Dashboard />
+          </Route>
+          <Route exact path="/content">
+            <Content />
+          </Route>
+          <Route path="/content/courses">
+            <Courses />
+          </Route>
+          <Route path="/content/videos">
+            <Videos />
+          </Route>
+          <Route path="/design">
+            <Design />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
