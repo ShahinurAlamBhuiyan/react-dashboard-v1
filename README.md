@@ -7,7 +7,7 @@
 + User can collapse side-menu by clicking arrow button.
 
 
-## Front-end Technology :
+## Technology :
 + React.js
 + React-router
 
