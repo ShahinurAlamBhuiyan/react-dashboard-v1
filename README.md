@@ -1,5 +1,6 @@
 # React-fancy-dashboard
-#### This is a sample of website dashboard
+#### This is a website-dashboard.
+here is the version-2 dashboard [Click_here](https://github.com/ShahinurAlamBhuiyan/react-dashboard-v2)
 ### [Live website](https://fancy-dashboard.netlify.app/)
 
 ## Feautures
